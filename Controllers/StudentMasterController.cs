@@ -16,7 +16,7 @@ namespace EF_TEST_UI.Controllers
 {
     public class StudentMasterController : Controller
     {
-        private LocalContext db = new LocalContext(ConfigurationSettings.AppSettings.Get("DatabaseLink").ToString());
+        private LocalContext db = new LocalContext();
 
         // GET: StudentMaster
         public async Task<ActionResult> Index()

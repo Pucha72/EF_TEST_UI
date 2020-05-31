@@ -4,16 +4,14 @@
     ViewBag.Title = "Edit";
 }
 
-    <h2>Edit Standard</h2>
-
+<h2>Edit Standard</h2>
+<hr />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>Standard</h4>
-        <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.standard_id)
 
@@ -34,7 +32,7 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-success" })
+    @Html.ActionLink("Back to List", "Index", "", new { @class = "text-success" })
 </div>
 
 @section Scripts {
