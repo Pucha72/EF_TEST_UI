@@ -1,0 +1,54 @@
+﻿@model IEnumerable<EF_Models.Student>
+
+@{
+    ViewBag.Title = "Student List";
+}
+
+<h2>Student List</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-success" })
+</p>
+<table class="table table-bordered table-responsive table_sr_number">
+    <thead>
+        <tr>
+            <td>Sl No</td>
+            <th>
+                @Html.DisplayNameFor(model => model.student_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.standard.standard_name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (@Model.Count() == 0)
+        {
+            <tr>
+                <td colspan='3'>
+                    No Records Found
+                </td>
+            </tr>
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>&nbsp;</td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.student_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.standard.standard_name)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.student_id }, new { @class = "text-warning" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.student_id }, new { @class = "text-info" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.student_id }, new { @class = "text-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+ 
