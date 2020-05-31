@@ -8,16 +8,22 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using EF_Migration;
-using EF_Models ;
+using EF_Models;
+using System.Configuration;
+
 namespace EF_TEST_UI.Controllers
 {
     public class StandardMasterController : Controller
     {
-        private LocalContext db = new LocalContext();
+
+        private LocalContext db = new LocalContext(ConfigurationSettings.AppSettings.Get("DatabaseLink").ToString());
+        //"LocalContextDB"
+        // public LocalContext() : base("name=SchoolDBConnectionString")
 
         // GET: StandardMaster
         public async Task<ActionResult> Index()
         {
+
             return View(await db.standard.ToListAsync());
         }
 
